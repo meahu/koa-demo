@@ -5,12 +5,12 @@
     <form method="post" onsubmit="return false;">
       <div class="ui left icon input">
         <i class="mail icon"></i>
-        <input type="text" placeholder="用户名" name="name">
+        <input type="text" placeholder="用户名" name="name" value="admin">
       </div>
       <br><br>
       <div class="ui left icon input">
         <i class="lock icon"></i>
-        <input type="password" placeholder="密码" name="password">
+        <input type="password" placeholder="密码" name="password" value="admin">
       </div>
       <br><br>
       <input type="submit" onclick="aa()" class="ui button fluid" value="登录">
@@ -20,11 +20,15 @@
 
 <script>
     function aa () {
-        debugger
-        $.post("/signin", {suggest: '1111'}, function (result) {
-            alert(111);
-        });
-        return false;
+        $.post(
+            "/signin", 
+            {
+                name: $('input[name=name]').val(),
+                password: $('input[name=password]').val()
+            },
+            function (result) {
+
+            });
     }
 </script>
 

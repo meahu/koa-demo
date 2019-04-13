@@ -1,40 +1,23 @@
+const util = require('../util/util');
+
 exports.get = async (ctx) => {
-    console.log(ctx);
     await ctx.render('../views/signin');
 };
 
-function parsePostData( ctx ) {
-    return new Promise((resolve, reject) => {
-      try {
-        let postdata = "";
-        ctx.req.addListener('data', (data) => {
-          postdata += data
-        })
-        ctx.req.addListener("end",function(){
-          let parseData = parseQueryStr( postdata )
-          resolve( parseData )
-        })
-      } catch ( err ) {
-        reject(err)
-      }
-    })
-  }
-
-  // 将POST请求参数字符串解析成JSON
-function parseQueryStr( queryStr ) {
-    let queryData = {}
-    let queryStrList = queryStr.split('&')
-    console.log( queryStrList )
-    for (  let [ index, queryStr ] of queryStrList.entries()  ) {
-      let itemList = queryStr.split('=')
-      queryData[ itemList[0] ] = decodeURIComponent(itemList[1])
-    }
-    return queryData
-  }
 exports.post = async (ctx, next) => {
-    let postData = await parsePostData(ctx);
-    console.log(postData);
-    ctx.body = 'hello koa2';
+    let params = ctx.request.body;
+    console.log(ctx.cookies.get("userInfo"));
+    if (params.name === 'admin' && params.password === 'admin') {
+        // ctx.session.username = params.name;
+        ctx.cookies.set("userInfo", "gouzi", {
+            maxAge:1000*60*60
+          })
+        console.log(ctx.session);
+        ctx.body = util.resData(params);
+    } else {
+        ctx.body = util.resData('用户名或密码错误', 1, '用户名或密码错误');
+    }
+    
     // var data = ctx.request.body;
     // console.log(data);
     // var userInfo = yield $User.getUserByName(data.name);
