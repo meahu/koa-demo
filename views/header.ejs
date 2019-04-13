@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>N-club</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.0/semantic.min.css">
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <!-- <script src="js/jquery-1.11.2.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.0/semantic.min.js"></script>
+    <style>
+    body{background-color:#f9f9f7;padding-top:100px}
+.container{width:100%;max-width:1100px;margin:0 auto}
+.navbar{height:60px;line-height:60px;background-color:rgba(255,255,255,.9)!important}
+.flash{max-width:1100px;margin:0 auto 20px}
+.summary{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topic{margin-top:10px;color:rgba(0,0,0,.4);font-size:.9rem}
+.content{font-size:16px;line-height:24px}
+.userCard{height:48px;margin-bottom:10px}
+.userCard img{width:48px!important;height:48px;float:left;margin-right:15px}
+.userCard .info{line-height:48px}
+.list img{width:40px}
+.ui.pagination{margin-top:10px!important}
+.ui.comments{max-width:100%;font-size:16px}
+.ui.menu .item:before{width:0}</style>
+  </head>
+  <body>
+    <div class="ui fixed menu navbar">
+      <div class="container">
+        <a href="/" class="item"><%= commonName %></a>
+        <div class="item"><%= commonDescription %></div>
+        <div class="right menu">
+            <a href="/logout" class="item">登出</a>
+            <a href="/signup" class="item">注册</a>
+            <a href="/signin" class="item">登录</a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script type="text/javascript">
+      $('.message .close').on('click', function() {
+        $(this).closest('.message').fadeOut();
+      });
+    </script>
