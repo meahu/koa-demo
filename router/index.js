@@ -1,8 +1,18 @@
 const router = require('koa-router')();
 const signin = require('./signin.js');
+const signup = require('./signup.js');
+const comment = require('./comment.js');
+const topic = require('./topic.js');
 
 router.get('/signin', signin.get)
 router.post('/signin', signin.post)
+router.get('/signup', signup.get)
+router.post('/signup', signup.post)
+// router.get('/comment/:id', comment.get)
+// router.post('/comment', comment.post)
+router.get('/topic', topic.create)
+router.get('/topic/create', topic.create)
+router.post('/topic/create', topic.createTopic)
 // console.log(user);
 
 // router.get('/',async (ctx)=>{

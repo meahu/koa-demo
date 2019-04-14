@@ -1,0 +1,66 @@
+<% include header %>
+
+<div class="container">
+  <div class="ui form segment" style="width:400px;margin:40px auto">
+    <form method="post" onsubmit="return false;">
+      <div class="two fields">
+        <div class="field required">
+          <label>用户名</label>
+          <input placeholder="用户名" type="text" name="name" value="admin">
+        </div>
+        <div class="field required">
+          <label>性别</label>
+          <div class="ui selection dropdown">
+            <div class="default text">选择性别</div>
+            <i class="dropdown icon"></i>
+            <input type="hidden" name="gender">
+            <div class="menu">
+              <div class="item" data-value="男">男</div>
+              <div class="item" data-value="女">女</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field required">
+          <label>密码</label>
+          <input placeholder="密码" type="password" name="password" value="abc123456">
+        </div>
+        <div class="field required">
+          <label>重复密码</label>
+          <input placeholder="重复密码" type="password" name="re_password" value="abc123456">
+        </div>
+      </div>
+      <div class="field required">
+        <label>邮箱</label>
+        <input placeholder="邮箱" type="email" name="email" value="imeahu@163.com">
+      </div>
+      <div class="field">
+        <label>个人签名</label>
+        <input type="text" placeholder="限制在50字以内" name="signature" value="我是不一样的烟火">
+      </div>
+      <input type="submit" onclick="submit2()" class="ui button fluid" value="注册">
+    </form>
+  </div>
+</div>
+
+<script type="text/javascript">
+$('.ui.dropdown').dropdown();
+  function submit2 () {
+      $.post(
+          "/signup", 
+          {
+              name: $('input[name=name]').val(),
+              gender: $('input[name=gender]').val(),
+              password: $('input[name=password]').val(),
+              re_password: $('input[name=re_password]').val(),
+              email: $('input[name=email]').val(),
+              signature: $('input[name=signature]').val()
+          },
+          function (result) {
+
+          });
+  }
+</script>
+
+<% include footer %>
