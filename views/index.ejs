@@ -1,29 +1,22 @@
-<!DOCTYPE html>
-<html>
+<% include header %>
 
-    <head>
-        <meta charset="utf-8">
-    </head>
+<div class="container">
+  <div class="ui two column centered grid">
+    <div class="right floated left aligned four wide column">
+      <% if (cookie.userName) { %>
+        <% var name = cookie.userName; %>
+        <% include partials/userCard %>
+        <% include partials/createCard %>
+      <% } %>
+      <% include partials/noReplyCard %>
+      <% include partials/linkCard %>
+    </div>
+    <div class="left floated  twelve wide column">
+      <% include partials/tab %>
+      <% include partials/list %>
+      <% include partials/pagination %>
+    </div>
+  </div>
+</div>
 
-    <body>
-        <h1>普通模版</h1>
-        <h2><%=title%> <%=userName%></h2>
-        <h1>ejs循环输出模版</h1>
-
-        <ul>
-            <%for(var i = 0;i<list.length;i++){%>
-            <li><%= list[i] %></li>
-            <%}%>
-        </ul>
-        
-        <h2>原文输出标签</h2>
-        <%- content %>
-            <h2>条件判断</h2>
-            <% if(num > 20){ %>
-            大于20
-            <% }else{ %>
-            小于20
-            <% } %>
-    </body>
-
-</html>
+<% include footer %>

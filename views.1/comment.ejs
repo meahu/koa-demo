@@ -1,0 +1,50 @@
+<div class="ui segment">
+  <div class="ui comments">
+    <h3 class="ui header">评论</h3>
+    <div class="ui divider"></div>
+    <% comments.forEach(function (comment) { %>
+      <div class="comment">
+        <a class="avatar" href="/user/<%= comment.user.name %>">
+          <img src="<%= comment.user.email %>">
+        </a>
+        <div class="content">
+          <a class="author" href="/user/<%= comment.user.name %>">
+            <%= comment.user.name %>
+          </a>
+          <div class="metadata">
+            <span class="date">
+              <%= comment.updated_at %>
+            </span>
+          </div>
+          <div class="text">
+            <%= comment.content %>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+
+    <% if (cookie.userName) { %>
+      <form class="ui reply form" method="post" onsubmit="return false;">
+        <input type="hidden" name="topic_id" value="<%= topic._id %>">
+        <div class="field">
+          <textarea name="content"></textarea>
+        </div>
+        <input type="submit" onclick="submit2()" class="ui button" value="留言">
+      </form>
+    <% } %>
+  </div>
+</div>
+
+<script>
+    function submit2 () {
+        $.post(
+            "/comment", 
+            {
+              topic_id: $('input[name=topic_id]').val(),
+              content: $('textarea[name=content]').val()
+            },
+            function (result) {
+
+            });
+    }
+</script>
