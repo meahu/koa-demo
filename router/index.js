@@ -3,6 +3,7 @@ const signin = require('./signin.js');
 const signup = require('./signup.js');
 const comment = require('./comment.js');
 const topic = require('./topic.js');
+const topicDetail = require('./topic/_id');
 
 router.get('/signin', signin.get)
 router.post('/signin', signin.post)
@@ -13,7 +14,9 @@ router.post('/signup', signup.post)
 router.get('/topic', topic.create)
 router.get('/topic/create', topic.create)
 router.post('/topic/create', topic.createTopic)
-// console.log(user);
+router.get('/topic/:id', topic.getTopicDeail)
+
+router.post('/comment', comment.post);
 
 // router.get('/',async (ctx)=>{
 //     let title = '你好ejs';

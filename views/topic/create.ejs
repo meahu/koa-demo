@@ -3,8 +3,9 @@
 <div class="container">
   <div class="ui two column centered grid">
     <div class="right floated left aligned four wide column">
-        <% var name = cookie.user.name; %>
-        <% include partials/userCard %>
+        <% var name = cookie.username; %>
+        <%= userInfo.signature %>
+        <%- include('../partials/userCard') %>
     </div>
     <div class="left floated twelve wide column">
       <form method="post" onsubmit="return false;">

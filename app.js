@@ -32,8 +32,8 @@ app.use(async (ctx,next)=>{
         commonName: 'koa demo',
         commonDescription: 'koa description',
         cookie: {
-            userName: '',
-            email: ''
+            userName: ctx.cookies.get("username") || '',
+            email: ctx.cookies.get("email") || ''
         },
         $app: {
             tabs: ["全部", "问答", "分享", "吐槽", "招聘"]
@@ -42,6 +42,8 @@ app.use(async (ctx,next)=>{
     // 继续向下匹配路由
     await next(); 
 });
+
+// app.use(render(app, {filters: require('./helpers/filters')}));
 
 // 路由
 app.use(router.routes());

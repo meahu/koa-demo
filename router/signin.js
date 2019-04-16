@@ -7,7 +7,7 @@ exports.get = async (ctx) => {
     await ctx.render('../views/signin');
 };
 
-exports.post = async (ctx, next) => {
+exports.post = async (ctx) => {
     console.log('注册提交');
     let params = ctx.request.body;
 
