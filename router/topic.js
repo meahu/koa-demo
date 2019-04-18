@@ -1,5 +1,5 @@
 const Topic = require('../lib/core').Topic;
-const User = require('../lib/core').$User;
+const User = require('../lib/core').User;
 const Comment = require('../lib/core').Comment;
 
 exports.create = async (ctx) => {

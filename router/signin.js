@@ -1,6 +1,6 @@
 const util = require('../util/util');
 var Models = require('../lib/core');
-var $User = Models.$User;
+var User = Models.User;
 
 exports.get = async (ctx) => {
     console.log('注册');
@@ -11,7 +11,7 @@ exports.post = async (ctx) => {
     console.log('注册提交');
     let params = ctx.request.body;
 
-    res = await $User.getUserByName(params.name);
+    res = await User.getUserByName(params.name);
 
     if (res && res.password === params.password) {
         ctx.cookies.set("username", params.name, {

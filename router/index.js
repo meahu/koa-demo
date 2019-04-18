@@ -6,6 +6,7 @@ const comment = require('./comment.js');
 const topic = require('./topic.js');
 const topicDetail = require('./topic/_id');
 
+router.get('', main.get)
 router.get('/', main.get)
 
 router.get('/signin', signin.get)
