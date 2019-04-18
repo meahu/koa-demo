@@ -7,7 +7,7 @@ exports.create = async (ctx) => {
     await ctx.render('../views/topic/create', {userInfo: userInfo});
 }
 
-exports.createTopic = async (ctx, data) => {
+exports.createTopic = async (ctx) => {
     let params = ctx.request.body;
     params.user = {
         name: ctx.cookies.get("username"),
@@ -21,7 +21,7 @@ exports.createTopic = async (ctx, data) => {
     }
 }
 
-exports.getTopicDeail = async (ctx, data) => {
+exports.getTopicDeail = async (ctx) => {
     let urlArr = ctx.request.url.split('/');
     let id = urlArr[urlArr.length - 1];
     const topic = await Topic.getTopicById(id);
