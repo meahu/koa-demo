@@ -1,10 +1,13 @@
 const router = require('koa-router')();
+const main = require('./main');
 const signin = require('./signin.js');
 const signup = require('./signup.js');
 const comment = require('./comment.js');
 const topic = require('./topic.js');
 const topicDetail = require('./topic/_id');
 const user = require('./user');
+
+router.get('/', main.get)
 
 // 登录注册
 router.get('/signin', signin.get)
