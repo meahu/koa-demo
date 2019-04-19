@@ -1,5 +1,5 @@
 const Topic = require('../../lib/core').$Topic;
-const User = require('../../lib/core').$User;
+const User = require('../../lib/core').User;
 
 exports.get = async (ctx) => {
     console.log(ctx.body);

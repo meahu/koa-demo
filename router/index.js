@@ -7,6 +7,7 @@ const topic = require('./topic.js');
 const topicDetail = require('./topic/_id');
 const user = require('./user');
 
+router.get('', main.get)
 router.get('/', main.get)
 
 // 登录注册
