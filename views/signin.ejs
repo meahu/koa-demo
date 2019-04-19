@@ -19,6 +19,20 @@
 </div>
 
 <script>
+
+import 'whatwg-fetch'
+fetch('/signin',{
+    method  : "POST",
+    body    : JSON.Stringify({
+                name: $('input[name=name]').val(),
+                password: $('input[name=password]').val()
+            }),
+    headers : {
+      'content-type': 'application/json'
+    },
+}).then(res => {
+  debugger
+});
     function submit2 () {
         $.post(
             "/signin", 
